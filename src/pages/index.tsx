@@ -1,7 +1,10 @@
 import type { NextPage } from "next";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Auth from "../components/Auth";
 import { Layout } from "../components/Layout";
+import { TaskForm } from "../components/TaskForm";
+import { TaskList } from "../components/TaskList";
+
 import { ArrowLeftEndOnRectangleIcon } from "@heroicons/react/24/solid";
 
 const Home: NextPage = () => {
@@ -20,6 +23,8 @@ const Home: NextPage = () => {
         onClick={() => signOut()}
       />
       <p className="text-2xl font-bold">{session.user?.name}</p>
+      <TaskForm />
+      <TaskList />
     </Layout>
   );
 };
